@@ -25,6 +25,9 @@ public class OcorrenciaCsvParser implements CrimeStatsParser {
 
 	@Override
 	public List<Crime> readCsv(CsvFile file) throws IOException {
+		if (!file.tipo().equals("Ocorrencia")) {
+			return null;
+		}
 		List<String> lines = readFromUrl(file);
 		List<Crime> ocorrencias = new ArrayList<>();
 		for (int i = 1; i < lines.size(); i++) {
