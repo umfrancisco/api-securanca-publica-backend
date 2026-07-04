@@ -20,6 +20,14 @@ public class CrimeStatsService {
 		this.ocorrenciaCsvParser = ocorrenciaCsvParser;
 	}
 	
+	public String saveAll(List<CsvFile> files) {
+		for (var file : files) {
+			repository.save(file);
+			System.out.println(file);
+		}
+		return "Saved";
+	}
+	
 	public List<Crime> findAllOcorrencias() throws IOException {
 		List<CsvFile> csvFiles = repository.findAll();
 		List<Crime> allData = new ArrayList<Crime>();
