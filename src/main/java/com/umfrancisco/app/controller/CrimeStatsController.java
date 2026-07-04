@@ -3,6 +3,7 @@ package com.umfrancisco.app.controller;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,11 @@ public class CrimeStatsController {
 	@GetMapping("/ocorrencia")
 	public List<Crime> findAllOcorrencias() throws IOException {
 		return service.findAllOcorrencias();
+	}
+	
+	@GetMapping("/ocorrencia/{cidade}")
+	public List<Crime> findByCidadeAndOcorrencia(@PathVariable String cidade) throws IOException {
+		return service.findByCidadeAndOcorrencia(cidade);
 	}
 	
 	@PostMapping("/data")

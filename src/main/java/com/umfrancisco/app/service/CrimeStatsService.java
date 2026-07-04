@@ -28,6 +28,18 @@ public class CrimeStatsService {
 		return "Saved";
 	}
 	
+	public List<Crime> findByCidadeAndOcorrencia(String cidade) throws IOException {
+		List<CsvFile> files = repository.findByCidade(cidade.toLowerCase());
+		List<Crime> allData = new ArrayList<Crime>();
+		for (var file : files) {
+			if (file.tipo().equalsIgnoreCase("Ocorrencia")) {
+				List<Crime> data = ocorrenciaCsvParser.readCsv(file);
+				allData.addAll(data);
+			}
+		}
+		return allData;
+	}
+	
 	public List<Crime> findAllOcorrencias() throws IOException {
 		List<CsvFile> csvFiles = repository.findAll();
 		List<Crime> allData = new ArrayList<Crime>();
