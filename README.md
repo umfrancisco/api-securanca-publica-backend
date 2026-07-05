@@ -4,10 +4,10 @@ Uma API REST desenvolvida com Spring Boot que fornece acesso a estatísticas cri
 
 ## Tecnologias
 
-- **Java 17**
-- **Spring Boot 4.1.0**
-- **Maven**
-- **Spring Web MVC**
+- Java 17
+- Spring Boot 4
+- Maven
+- Spring Web MVC
 
 
 ## Endpoints da API
