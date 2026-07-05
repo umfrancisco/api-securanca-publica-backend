@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.umfrancisco.app.model.Crime;
 import com.umfrancisco.app.model.CsvFile;
-import com.umfrancisco.app.repository.Data;
+import com.umfrancisco.app.repository.CrimeDataset;
 import com.umfrancisco.app.util.OcorrenciaCsvParser;
 
 @Service
@@ -19,7 +19,7 @@ public class CrimeStatsService {
 	}
 	
 	public List<Crime> findByCidadeAndOcorrencia(String cidade) throws IOException {
-		List<CsvFile> files = Data.findByCidade(cidade.toLowerCase());
+		List<CsvFile> files = CrimeDataset.findByCidade(cidade.toLowerCase());
 		List<Crime> allData = new ArrayList<Crime>();
 		for (var file : files) {
 			if (file.tipo().equalsIgnoreCase("Ocorrencia")) {
@@ -31,7 +31,7 @@ public class CrimeStatsService {
 	}
 	
 	public List<Crime> findAllOcorrencias() throws IOException {
-		List<CsvFile> csvFiles = Data.findAll();
+		List<CsvFile> csvFiles = CrimeDataset.findAll();
 		List<Crime> allData = new ArrayList<Crime>();
 		for (var csvFile : csvFiles) {
 			List<Crime> data = ocorrenciaCsvParser.readCsv(csvFile);

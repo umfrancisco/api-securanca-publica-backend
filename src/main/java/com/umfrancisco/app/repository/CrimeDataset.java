@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.umfrancisco.app.model.CsvFile;
 
-public class Data {
+public class CrimeDataset {
 	
 	private static List<CsvFile> data = List.of(
 			new CsvFile("São Paulo-Ocorrencia", "https://raw.githubusercontent.com/umfrancisco/api-securanca-publica-backend/refs/heads/main/data/OcorrenciaAnual-S%C3%A3o%20Paulo_20260704_164347.csv"),
