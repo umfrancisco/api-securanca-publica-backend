@@ -9,4 +9,5 @@ public class ApiSegurancaPublicaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiSegurancaPublicaApplication.class, args);
 	}
+	
 }

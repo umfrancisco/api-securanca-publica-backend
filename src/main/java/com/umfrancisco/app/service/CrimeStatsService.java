@@ -6,30 +6,20 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.umfrancisco.app.model.Crime;
 import com.umfrancisco.app.model.CsvFile;
-import com.umfrancisco.app.repository.CsvFileRepository;
+import com.umfrancisco.app.repository.Data;
 import com.umfrancisco.app.util.OcorrenciaCsvParser;
 
 @Service
 public class CrimeStatsService {
 	
 	private final OcorrenciaCsvParser ocorrenciaCsvParser;
-	private final CsvFileRepository repository;
 	
-	public CrimeStatsService(OcorrenciaCsvParser ocorrenciaCsvParser, CsvFileRepository repository) {
-		this.repository = repository;
+	public CrimeStatsService(OcorrenciaCsvParser ocorrenciaCsvParser) {
 		this.ocorrenciaCsvParser = ocorrenciaCsvParser;
 	}
 	
-	public String saveAll(List<CsvFile> files) {
-		for (var file : files) {
-			repository.save(file);
-			System.out.println(file);
-		}
-		return "Saved";
-	}
-	
 	public List<Crime> findByCidadeAndOcorrencia(String cidade) throws IOException {
-		List<CsvFile> files = repository.findByCidade(cidade.toLowerCase());
+		List<CsvFile> files = Data.findByCidade(cidade.toLowerCase());
 		List<Crime> allData = new ArrayList<Crime>();
 		for (var file : files) {
 			if (file.tipo().equalsIgnoreCase("Ocorrencia")) {
@@ -41,7 +31,7 @@ public class CrimeStatsService {
 	}
 	
 	public List<Crime> findAllOcorrencias() throws IOException {
-		List<CsvFile> csvFiles = repository.findAll();
+		List<CsvFile> csvFiles = Data.findAll();
 		List<Crime> allData = new ArrayList<Crime>();
 		for (var csvFile : csvFiles) {
 			List<Crime> data = ocorrenciaCsvParser.readCsv(csvFile);
