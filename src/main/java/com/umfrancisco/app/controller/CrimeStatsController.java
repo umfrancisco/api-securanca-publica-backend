@@ -2,6 +2,8 @@ package com.umfrancisco.app.controller;
 
 import java.io.IOException;
 import java.util.List;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,7 @@ import com.umfrancisco.app.service.TaxaDelitoService;
 
 @RestController
 @RequestMapping("/api/crime")
+@CrossOrigin
 public class CrimeStatsController {
 	
 	private final OcorrenciaService ocorrenciaService;
