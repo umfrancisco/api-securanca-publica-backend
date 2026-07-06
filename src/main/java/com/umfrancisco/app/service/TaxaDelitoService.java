@@ -10,6 +10,7 @@ import com.umfrancisco.app.model.CsvFile;
 import com.umfrancisco.app.model.TaxaDelito;
 import com.umfrancisco.app.repository.CrimeDatasetUrlFiles;
 import com.umfrancisco.app.repository.TaxaDelitoRepository;
+import com.umfrancisco.app.util.Constants;
 import com.umfrancisco.app.util.TaxaDelitoCsvParser;
 
 @Service
@@ -37,10 +38,10 @@ public class TaxaDelitoService {
 		String message = "";
 		for (var d : dataFromDB) {
 			switch (infracao) {
-				case "Homicidio" -> dto.add(new TaxaDelitoDTO(d.getCidade(), d.getAno(), d.getHomicidio()));
-				case "Furto" -> dto.add(new TaxaDelitoDTO(d.getCidade(), d.getAno(), d.getFurto()));
-				case "Roubo" -> dto.add(new TaxaDelitoDTO(d.getCidade(), d.getAno(), d.getRoubo()));
-				case "Veiculo" -> dto.add(new TaxaDelitoDTO(d.getCidade(), d.getAno(), d.getFrvHabitante()));
+				case Constants.homicidio -> dto.add(new TaxaDelitoDTO(d.getCidade(), d.getAno(), d.getHomicidio()));
+				case Constants.furto -> dto.add(new TaxaDelitoDTO(d.getCidade(), d.getAno(), d.getFurto()));
+				case Constants.roubo -> dto.add(new TaxaDelitoDTO(d.getCidade(), d.getAno(), d.getRoubo()));
+				case Constants.veiculo -> dto.add(new TaxaDelitoDTO(d.getCidade(), d.getAno(), d.getFrvHabitante()));
 				default -> message = "[%s]: infracao '%s' not found".formatted(LocalDateTime.now(), infracao);
 			}
 		}

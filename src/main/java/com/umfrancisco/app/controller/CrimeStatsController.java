@@ -2,7 +2,6 @@ package com.umfrancisco.app.controller;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,32 +36,32 @@ public class CrimeStatsController {
 		return message;
 	}
 	
-	@GetMapping("/Ocorrencia")
+	@GetMapping("/ocorrencia")
 	public List<Ocorrencia> findAllOcorrencia() throws IOException {
 		return ocorrenciaService.findAll();
 	}
 	
-	@GetMapping("/Ocorrencia/{cidade}")
+	@GetMapping("/ocorrencia/{cidade}")
 	public List<Ocorrencia> findOcorrenciaByCidade(@PathVariable String cidade) {
 		return ocorrenciaService.findByCidade(cidade);
 	}
 	
-	@GetMapping("/Ocorrencia/{cidade}/{infracao}")
+	@GetMapping("/ocorrencia/{cidade}/{infracao}")
 	public List<OcorrenciaDTO> findOcorrenciaByCidadeAndInfracao(@PathVariable String cidade, @PathVariable String infracao) {
 		return ocorrenciaService.findByCidadeAndInfracao(cidade, infracao);
 	}
 	
-	@GetMapping("/Taxa Delito")
+	@GetMapping("/taxa_delito")
 	public List<TaxaDelito> findAllTaxaDelito() throws IOException {
 		return taxaDelitoService.findAll();
 	}
 	
-	@GetMapping("/Taxa Delito/{cidade}")
+	@GetMapping("/taxa_delito/{cidade}")
 	public List<TaxaDelito> findTaxaDelitoByCidade(@PathVariable String cidade) {
 		return taxaDelitoService.findByCidade(cidade);
 	}
 	
-	@GetMapping("/Taxa Delito/{cidade}/{infracao}")
+	@GetMapping("/taxa_delito/{cidade}/{infracao}")
 	public List<TaxaDelitoDTO> findTaxaDelitoByCidadeAndInfracao(@PathVariable String cidade, @PathVariable String infracao) {
 		return taxaDelitoService.findByCidadeAndInfracao(cidade, infracao);
 	}

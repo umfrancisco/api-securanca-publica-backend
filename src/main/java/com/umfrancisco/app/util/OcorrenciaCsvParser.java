@@ -8,11 +8,10 @@ import com.umfrancisco.app.model.Ocorrencia;
 
 public class OcorrenciaCsvParser extends CrimeStatsParser {
 	
-	private String ocorrencia = "Ocorrencia";
 	private Long id = 1L;
 	
 	public List<Ocorrencia> readCsv(CsvFile file) throws IOException {
-		if (!file.tipo().equals(ocorrencia)) {
+		if (!file.tipo().equals(Constants.ocorrencia)) {
 			return null;
 		}
 		List<String> lines = readFromUrl(file);

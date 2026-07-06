@@ -5,12 +5,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
-
 import com.umfrancisco.app.dto.OcorrenciaDTO;
 import com.umfrancisco.app.model.CsvFile;
 import com.umfrancisco.app.model.Ocorrencia;
 import com.umfrancisco.app.repository.CrimeDatasetUrlFiles;
 import com.umfrancisco.app.repository.OcorrenciaRepository;
+import com.umfrancisco.app.util.Constants;
 import com.umfrancisco.app.util.OcorrenciaCsvParser;
 
 @Service
@@ -38,10 +38,10 @@ public class OcorrenciaService {
 		String message = "";
 		for (var d : dataFromDB) {
 			switch (infracao) {
-				case "Homicidio" -> dto.add(new OcorrenciaDTO(d.getCidade(), d.getAno(), d.getHomicidio()));
-				case "Furto" -> dto.add(new OcorrenciaDTO(d.getCidade(), d.getAno(), d.getFurto()));
-				case "Roubo" -> dto.add(new OcorrenciaDTO(d.getCidade(), d.getAno(), d.getRoubo()));
-				case "Veiculo" -> dto.add(new OcorrenciaDTO(d.getCidade(), d.getAno(), d.getFurtoRouboVeiculo()));
+				case Constants.homicidio -> dto.add(new OcorrenciaDTO(d.getCidade(), d.getAno(), d.getHomicidio()));
+				case Constants.furto -> dto.add(new OcorrenciaDTO(d.getCidade(), d.getAno(), d.getFurto()));
+				case Constants.roubo -> dto.add(new OcorrenciaDTO(d.getCidade(), d.getAno(), d.getRoubo()));
+				case Constants.veiculo -> dto.add(new OcorrenciaDTO(d.getCidade(), d.getAno(), d.getFurtoRouboVeiculo()));
 				default -> message = "[%s]: infracao '%s' not found".formatted(LocalDateTime.now(), infracao);
 			}
 		}

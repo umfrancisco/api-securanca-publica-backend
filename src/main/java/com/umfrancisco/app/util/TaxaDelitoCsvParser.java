@@ -8,11 +8,10 @@ import com.umfrancisco.app.model.TaxaDelito;
 
 public class TaxaDelitoCsvParser extends CrimeStatsParser {
 	
-	private String taxaDelito = "TaxaDelito";
 	private Long id = 1L;
 
 	public List<TaxaDelito> readCsv(CsvFile file) throws IOException {
-		if (!file.tipo().equals(taxaDelito)) {
+		if (!file.tipo().equals(Constants.taxaDelito)) {
 			return null;
 		}
 		List<String> lines = readFromUrl(file);
