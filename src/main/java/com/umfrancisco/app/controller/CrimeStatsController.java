@@ -20,13 +20,23 @@ public class CrimeStatsController {
 	}
 	
 	@GetMapping("/ocorrencia")
-	public List<Crime> findAllOcorrencias() throws IOException {
-		return service.findAllOcorrencias();
+	public List<Crime> findAllByOcorrencia() throws IOException {
+		return service.findAllDataByType(Crime.ocorrencia);
 	}
 	
 	@GetMapping("/ocorrencia/{cidade}")
-	public List<Crime> findByCidadeAndOcorrencia(@PathVariable String cidade) throws IOException {
-		return service.findByCidadeAndOcorrencia(cidade);
+	public List<Crime> findByOcorrenciaCidade(@PathVariable String cidade) throws IOException {
+		return service.findByCidade(cidade, Crime.ocorrencia);
+	}
+	
+	@GetMapping("/taxa_delito")
+	public List<Crime> findAllByTaxaDelito() throws IOException {
+		return service.findAllDataByType(Crime.taxaDelito);
+	}
+	
+	@GetMapping("/taxa_delito/{cidade}")
+	public List<Crime> findByTaxaDelitoCidade(@PathVariable String cidade) throws IOException {
+		return service.findByCidade(cidade, Crime.taxaDelito);
 	}
 	
 }

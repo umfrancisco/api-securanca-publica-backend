@@ -17,10 +17,10 @@ public class CrimeDataset {
 		return data;
 	}
 	
-	public static List<CsvFile> findByCidade(String cidade) {
-		List<CsvFile> cidadeList = new ArrayList<CsvFile>();
+	public static List<CsvFile> findByCidadeAndTipo(String cidade, String tipo) {
+		List<CsvFile> cidadeList = new ArrayList<>();
 		for (var file : data) {
-			if (file.cidadeFormatted().equalsIgnoreCase(cidade)) {
+			if (file.cidadeFormatted().equalsIgnoreCase(cidade) && file.tipo().equals(tipo)) {
 				cidadeList.add(file);
 			}
 		}

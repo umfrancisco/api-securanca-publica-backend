@@ -6,9 +6,6 @@ public record TaxaDelito(
 		double homicidio,
 		double furto,
 		double roubo,
-		double frvHabitante,
-		double furtoVeiculo,
-		double rouboVeiculo,
-		double frvVeiculo) implements Crime {
+		double frvHabitante) implements Crime {
 	
 }
