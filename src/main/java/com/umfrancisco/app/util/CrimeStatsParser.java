@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
-import com.umfrancisco.app.model.Crime;
 import com.umfrancisco.app.model.CsvFile;
 
 public abstract class CrimeStatsParser {
@@ -20,5 +19,4 @@ public abstract class CrimeStatsParser {
 		}
 	}
 	
-	public abstract List<Crime> readCsv(CsvFile file) throws IOException;
 }
