@@ -13,14 +13,7 @@ public class CsvFile {
 	public CsvFile(String fileName, String url) {
 		this.fileName = fileName;
 		this.url = url;
-		this.cidade = cidadeFormatted();
-	}
-	
-	public String cidadeFormatted() {
-		String cidade = cidade().toLowerCase();
-		cidade = cidade.replace(" ", "_");
-		cidade = cidade.replace("ã", "a");
-		return cidade;
+		this.cidade = cidade();
 	}
 	
 	public String url() {
