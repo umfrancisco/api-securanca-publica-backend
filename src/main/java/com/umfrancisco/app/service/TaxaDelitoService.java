@@ -45,7 +45,9 @@ public class TaxaDelitoService {
 				default -> message = "[%s]: infracao '%s' not found".formatted(LocalDateTime.now(), infracao);
 			}
 		}
-		System.out.println(message);
+		if (!message.equals("")) {
+			System.out.println(message);
+		}
 		return dto;
 	}
 	
