@@ -36,6 +36,16 @@ public class CrimeStatsController {
 		return message;
 	}
 	
+	@GetMapping("/cidades")
+	public List<String> getCidades() {
+		return List.of("sao_paulo", "campinas");
+	}
+	
+	@GetMapping("/infracoes")
+	public List<String> getInfracoes() {
+		return List.of("homicidio", "roubo", "furto", "veiculo");
+	}
+	
 	@GetMapping("/ocorrencia")
 	public List<Ocorrencia> findAllOcorrencia() throws IOException {
 		return ocorrenciaService.findAll();

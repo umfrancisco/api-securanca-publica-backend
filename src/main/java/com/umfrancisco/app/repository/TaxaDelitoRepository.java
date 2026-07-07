@@ -7,5 +7,6 @@ import com.umfrancisco.app.model.TaxaDelito;
 
 @Repository
 public interface TaxaDelitoRepository extends JpaRepository<TaxaDelito, Long> {
-	List<TaxaDelito> findByCidade(String cidade);
+	List<TaxaDelito> findByCidadeOrderByAnoAsc(String cidade);
+	List<TaxaDelito> findByOrderByAnoAsc();
 }

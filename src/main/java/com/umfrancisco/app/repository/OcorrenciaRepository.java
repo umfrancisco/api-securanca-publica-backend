@@ -7,5 +7,6 @@ import com.umfrancisco.app.model.Ocorrencia;
 
 @Repository
 public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long> {
-	List<Ocorrencia> findByCidade(String cidade);
+	List<Ocorrencia> findByCidadeOrderByAnoAsc(String cidade);
+	List<Ocorrencia> findByOrderByAnoAsc();
 }

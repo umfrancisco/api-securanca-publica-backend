@@ -25,15 +25,15 @@ public class OcorrenciaService {
 	}
 	
 	public List<Ocorrencia> findAll() {
-		return repository.findAll();
+		return repository.findByOrderByAnoAsc();
 	}
 	
 	public List<Ocorrencia> findByCidade(String cidade) {
-		return repository.findByCidade(cidade);
+		return repository.findByCidadeOrderByAnoAsc(cidade);
 	}
 	
 	public List<OcorrenciaDTO> findByCidadeAndInfracao(String cidade, String infracao) {
-		List<Ocorrencia> dataFromDB = repository.findByCidade(cidade);
+		List<Ocorrencia> dataFromDB = repository.findByCidadeOrderByAnoAsc(cidade);
 		List<OcorrenciaDTO> dto = new ArrayList<>();
 		String message = "";
 		for (var d : dataFromDB) {

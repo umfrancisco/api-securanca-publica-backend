@@ -29,11 +29,11 @@ public class TaxaDelitoService {
 	}
 	
 	public List<TaxaDelito> findByCidade(String cidade) {
-		return repository.findByCidade(cidade);
+		return repository.findByCidadeOrderByAnoAsc(cidade);
 	}
 	
 	public List<TaxaDelitoDTO> findByCidadeAndInfracao(String cidade, String infracao) {
-		List<TaxaDelito> dataFromDB = repository.findByCidade(cidade);
+		List<TaxaDelito> dataFromDB = repository.findByCidadeOrderByAnoAsc(cidade);
 		List<TaxaDelitoDTO> dto = new ArrayList<>();
 		String message = "";
 		for (var d : dataFromDB) {
