@@ -11,7 +11,6 @@ public interface Constants {
 	String santos = "Santos";
 	String ribeiraoPreto = "Ribeirão Preto";
 	String saoJoseDosCampos = "São José dos Campos";
-	String ocorrencia = "Ocorrencia";
 	String taxaDelito = "Taxa Delito";
 	String homicidio = "Homicidio";
 	String roubo = "Roubo";

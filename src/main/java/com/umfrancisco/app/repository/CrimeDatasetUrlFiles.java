@@ -6,8 +6,6 @@ import com.umfrancisco.app.util.Constants;
 
 public class CrimeDatasetUrlFiles {
 	
-	private static String campinasOcorrencia = Constants.campinas+"-"+Constants.ocorrencia;
-	private static String saoPauloOcorrencia = Constants.saoPaulo+"-"+Constants.ocorrencia;
 	private static String saoPauloTaxaDelito = Constants.saoPaulo+"-"+Constants.taxaDelito;
 	private static String campinasTaxaDelito = Constants.campinas+"-"+Constants.taxaDelito;
 	private static String guarulhosTaxaDelito = Constants.guarulhos+"-"+Constants.taxaDelito;
@@ -31,15 +29,6 @@ public class CrimeDatasetUrlFiles {
 			new CsvFile(ribeiraoPretoTaxaDelito, "https://raw.githubusercontent.com/umfrancisco/api-securanca-publica-backend/refs/heads/main/data/TaxaDelito-Ribeir%C3%A3o%20Preto_20260707_161850.csv"),
 			new CsvFile(saoJoseDosCamposTaxaDelito, "https://raw.githubusercontent.com/umfrancisco/api-securanca-publica-backend/refs/heads/main/data/TaxaDelito-S%C3%A3o%20Jos%C3%A9%20dos%20Campos_20260707_161856.csv")
 	);
-	
-	private static List<CsvFile> ocorrenciaFiles = List.of(
-			new CsvFile(saoPauloOcorrencia, "https://raw.githubusercontent.com/umfrancisco/api-securanca-publica-backend/refs/heads/main/data/OcorrenciaAnual-S%C3%A3o%20Paulo_20260704_164347.csv"),
-			new CsvFile(campinasOcorrencia, "https://raw.githubusercontent.com/umfrancisco/api-securanca-publica-backend/refs/heads/main/data/OcorrenciaAnual-Campinas_20260704_194108.csv")
-	);
-	
-	public static List<CsvFile> findAllOcorrenciaFiles() {
-		return ocorrenciaFiles;
-	}
 	
 	public static List<CsvFile> findAllTaxaDelitoFiles() {
 		return taxaDelitoFiles;
